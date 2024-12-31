@@ -55,6 +55,11 @@ function App() {
     }
   };
 
+  const removeFromFavorites = (quoteId) => {
+    const updatedFavorites = favoriteQuotes.filter((quote) => quote.id !== quoteId)
+    setFavoriteQuotes(updatedFavorites);
+  };
+
   return (
     <div className='App'>
       <Header />
@@ -62,6 +67,7 @@ function App() {
         <FavoriteQuotes 
         favoriteQuotes={favoriteQuotes}
         maxFaves={maxFaves}
+        removeFromFavorites={removeFromFavorites}
         />
         {loading ? (
           <Loader />
@@ -72,6 +78,7 @@ function App() {
             category={category}
             categories={categories}
             handleCategoryChange={handleCategoryChange}
+            favoriteQuotes={favoriteQuotes}
           />
         )}
       </main>
