@@ -10,15 +10,21 @@ const FavoriteQuotes = ({ favoriteQuotes, maxFaves, removeFromFavorites }) => {
         {favoriteQuotes.length > 0 && (
           <ul>
             {favoriteQuotes.map((quote) => (
-              <FavoriteQuoteCard key={quote.id} quote={quote} removeFromFavorites={removeFromFavorites} />
+              <FavoriteQuoteCard
+                key={quote.id}
+                listPosition={index + 1}
+                quote={quote}
+                removeFromFavorites={removeFromFavorites}
+              />
             ))}
           </ul>
         )}
         {favoriteQuotes.length < maxFaves && (
-          <div className='favorite-quotes-description'>
+          <div className="favorite-quotes-description">
             <p>
-              You can add {remainingFavoriteAmount} more {remainingFavoriteAmount === 1 ? "quote" : "quotes"} to your top three
-              favorites by selecting from the options below.
+              You can add {remainingFavoriteAmount} more{" "}
+              {remainingFavoriteAmount === 1 ? "quote" : "quotes"} to your top
+              three favorites by selecting from the options below.
               <br />
               Once you choose, they will appear here.
             </p>
